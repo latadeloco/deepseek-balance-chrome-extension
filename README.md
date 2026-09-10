@@ -29,14 +29,14 @@ Extensión de Chrome (Manifest V3) para ver de un vistazo tu **saldo disponible 
 
 ### Modos de seguridad
 
-| Modo | Cómo funciona | Protección |
-| --- | --- | --- |
-| **Estándar** (por defecto) | Se genera una clave aleatoria y se guarda localmente junto al token cifrado. No pide nada al usuario. | **Ofuscación**, no cifrado real: quien acceda al perfil de Chrome obtiene clave y token. |
-| **Modo seguro** (opcional) | Deriva la clave de una **frase de paso** tuya (PBKDF2-SHA256, 310.000 iteraciones) que **nunca se guarda**. | **Cifrado real**: sin la frase de paso, el token no puede descifrarse. |
+| Modo                       | Cómo funciona                                                                                               | Protección                                                                               |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| **Estándar** (por defecto) | Se genera una clave aleatoria y se guarda localmente junto al token cifrado. No pide nada al usuario.       | **Ofuscación**, no cifrado real: quien acceda al perfil de Chrome obtiene clave y token. |
+| **Modo seguro** (opcional) | Deriva la clave de una **frase de paso** tuya (PBKDF2-SHA256, 310.000 iteraciones) que **nunca se guarda**. | **Cifrado real**: sin la frase de paso, el token no puede descifrarse.                   |
 
-En **modo seguro** puedes marcar *Recordar hasta cerrar Chrome*: la frase/token se guarda en `chrome.storage.session` (memoria RAM) y se borra al cerrar el navegador.
+En **modo seguro** puedes marcar _Recordar hasta cerrar Chrome_: la frase/token se guarda en `chrome.storage.session` (memoria RAM) y se borra al cerrar el navegador.
 
-> Aviso: ningún esquema local protege el token si el equipo está comprometido (malware, keylogger) o mientras la extensión está desbloqueada. La opción *Recordar hasta cerrar Chrome* mantiene el token en memoria hasta cerrar Chrome.
+> Aviso: ningún esquema local protege el token si el equipo está comprometido (malware, keylogger) o mientras la extensión está desbloqueada. La opción _Recordar hasta cerrar Chrome_ mantiene el token en memoria hasta cerrar Chrome.
 
 Si olvidas la frase de paso, el token cifrado no se puede recuperar: usa **Desconectar / Introduce un token nuevo** para empezar de cero.
 
