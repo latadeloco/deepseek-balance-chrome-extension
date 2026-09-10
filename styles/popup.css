@@ -14,11 +14,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #14161c;
-    --surface: #1d2029;
+    --bg: #232733;
+    --surface: #2f3441;
     --text: #eef0f5;
-    --text-muted: #9aa1b1;
-    --border: #2b2f3a;
+    --text-muted: #b3b9c7;
+    --border: #424859;
     --danger: #ff6b5e;
     --success: #4cd07d;
   }
@@ -59,6 +59,8 @@ body {
 
 .app__logo {
   border-radius: 6px;
+  padding: 2px;
+  background: #ffffff;
 }
 
 .app__title {
