@@ -1,0 +1,22 @@
+{
+  "name": "deepseek-balance-chrome-extension",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Unofficial Chrome extension to view your available DeepSeek balance at a glance.",
+  "type": "module",
+  "author": "Jesús Robles Sánchez <jesusroblessanchez@proton.me>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.10.0",
+    "globals": "^17.12.0",
+    "prettier": "^3.9.6",
+    "vitest": "^5.0.0"
+  }
+}
