@@ -1,0 +1,110 @@
+{
+  "appName": {
+    "message": "DeepSeek Balance",
+    "description": "Nombre de la extensión."
+  },
+  "appDesc": {
+    "message": "Consulta de un vistazo tu saldo disponible en DeepSeek. Extensión no oficial.",
+    "description": "Descripción de la extensión."
+  },
+  "setupLead": {
+    "message": "Introduce tu token de API de DeepSeek para ver tu saldo.",
+    "description": "Texto de la pantalla de configuración."
+  },
+  "tokenLabel": {
+    "message": "Token de API",
+    "description": "Etiqueta del campo de token."
+  },
+  "tokenPlaceholder": {
+    "message": "sk-...",
+    "description": "Marcador del campo de token."
+  },
+  "secureModeLabel": {
+    "message": "Modo seguro (frase de paso)",
+    "description": "Etiqueta de la casilla para activar el cifrado con frase de paso."
+  },
+  "secureModeHint": {
+    "message": "El modo seguro cifra tu token con una frase de paso que debes recordar. Sin él, la clave se guarda localmente y solo queda ofuscada.",
+    "description": "Explicación del modo seguro."
+  },
+  "passphraseLabel": {
+    "message": "Frase de paso",
+    "description": "Etiqueta del campo de frase de paso."
+  },
+  "passphrasePlaceholder": {
+    "message": "Mínimo 8 caracteres",
+    "description": "Marcador del campo de frase de paso."
+  },
+  "rememberSessionLabel": {
+    "message": "Recordar hasta cerrar Chrome",
+    "description": "Etiqueta de la casilla para el almacenamiento de sesión."
+  },
+  "save": {
+    "message": "Guardar",
+    "description": "Botón guardar."
+  },
+  "unlockLead": {
+    "message": "Introduce tu frase de paso para desbloquear tu saldo.",
+    "description": "Texto de la pantalla de desbloqueo."
+  },
+  "unlock": {
+    "message": "Desbloquear",
+    "description": "Botón de desbloqueo."
+  },
+  "resetToken": {
+    "message": "¿Olvidaste tu frase de paso? Introduce un token nuevo",
+    "description": "Enlace para restablecer el token guardado."
+  },
+  "balanceLabel": {
+    "message": "Saldo disponible",
+    "description": "Etiqueta del panel de saldo."
+  },
+  "refresh": {
+    "message": "Actualizar",
+    "description": "Botón actualizar."
+  },
+  "disconnect": {
+    "message": "Desconectar",
+    "description": "Botón desconectar."
+  },
+  "retry": {
+    "message": "Reintentar",
+    "description": "Botón reintentar."
+  },
+  "unofficial": {
+    "message": "Extensión no oficial — sin afiliación con DeepSeek",
+    "description": "Aviso del pie de página."
+  },
+  "statusUnavailable": {
+    "message": "Saldo insuficiente para llamadas a la API",
+    "description": "Se muestra cuando is_available es falso."
+  },
+  "errorTokenRequired": {
+    "message": "Introduce tu token de API.",
+    "description": "Error de validación."
+  },
+  "errorPassphraseShort": {
+    "message": "La frase de paso debe tener al menos 8 caracteres.",
+    "description": "Error de validación."
+  },
+  "errorWrongPassphrase": {
+    "message": "Frase de paso incorrecta. Inténtalo de nuevo.",
+    "description": "Error de desbloqueo."
+  },
+  "errorInvalidToken": {
+    "message": "Token no válido. Revisa tu token de API de DeepSeek.",
+    "description": "Error HTTP 401/403."
+  },
+  "errorNetwork": {
+    "message": "Error de red. Comprueba tu conexión.",
+    "description": "Error de red."
+  },
+  "errorTimeout": {
+    "message": "La solicitud agotó el tiempo de espera. Inténtalo de nuevo.",
+    "description": "Error de tiempo de espera."
+  },
+  "errorUnknown": {
+    "message": "Algo salió mal. Inténtalo de nuevo.",
+    "description": "Error desconocido."
+  }
+}

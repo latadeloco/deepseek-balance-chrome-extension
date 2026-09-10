@@ -1,0 +1,110 @@
+{
+  "appName": {
+    "message": "DeepSeek Balance",
+    "description": "Extension name."
+  },
+  "appDesc": {
+    "message": "View your available DeepSeek balance at a glance. Unofficial extension.",
+    "description": "Extension description."
+  },
+  "setupLead": {
+    "message": "Enter your DeepSeek API token to see your balance.",
+    "description": "Setup screen lead text."
+  },
+  "tokenLabel": {
+    "message": "API token",
+    "description": "Token field label."
+  },
+  "tokenPlaceholder": {
+    "message": "sk-...",
+    "description": "Token input placeholder."
+  },
+  "secureModeLabel": {
+    "message": "Secure mode (passphrase)",
+    "description": "Checkbox label to enable passphrase encryption."
+  },
+  "secureModeHint": {
+    "message": "Secure mode encrypts your token with a passphrase you must remember. Without it, the key is stored locally and only obfuscated.",
+    "description": "Explanation of secure mode."
+  },
+  "passphraseLabel": {
+    "message": "Passphrase",
+    "description": "Passphrase field label."
+  },
+  "passphrasePlaceholder": {
+    "message": "At least 8 characters",
+    "description": "Passphrase input placeholder."
+  },
+  "rememberSessionLabel": {
+    "message": "Remember until Chrome closes",
+    "description": "Checkbox label for session storage."
+  },
+  "save": {
+    "message": "Save",
+    "description": "Save button."
+  },
+  "unlockLead": {
+    "message": "Enter your passphrase to unlock your balance.",
+    "description": "Unlock screen lead text."
+  },
+  "unlock": {
+    "message": "Unlock",
+    "description": "Unlock button."
+  },
+  "resetToken": {
+    "message": "Forgot your passphrase? Enter a new token",
+    "description": "Link to reset the stored token."
+  },
+  "balanceLabel": {
+    "message": "Available balance",
+    "description": "Balance panel label."
+  },
+  "refresh": {
+    "message": "Refresh",
+    "description": "Refresh button."
+  },
+  "disconnect": {
+    "message": "Disconnect",
+    "description": "Disconnect button."
+  },
+  "retry": {
+    "message": "Retry",
+    "description": "Retry button."
+  },
+  "unofficial": {
+    "message": "Unofficial extension — not affiliated with DeepSeek",
+    "description": "Footer disclaimer."
+  },
+  "statusUnavailable": {
+    "message": "Balance insufficient for API calls",
+    "description": "Shown when is_available is false."
+  },
+  "errorTokenRequired": {
+    "message": "Please enter your API token.",
+    "description": "Validation error."
+  },
+  "errorPassphraseShort": {
+    "message": "Passphrase must be at least 8 characters.",
+    "description": "Validation error."
+  },
+  "errorWrongPassphrase": {
+    "message": "Wrong passphrase. Please try again.",
+    "description": "Unlock error."
+  },
+  "errorInvalidToken": {
+    "message": "Invalid token. Check your DeepSeek API token.",
+    "description": "HTTP 401/403 error."
+  },
+  "errorNetwork": {
+    "message": "Network error. Check your connection.",
+    "description": "Network error."
+  },
+  "errorTimeout": {
+    "message": "The request timed out. Please try again.",
+    "description": "Timeout error."
+  },
+  "errorUnknown": {
+    "message": "Something went wrong. Please try again.",
+    "description": "Unknown error."
+  }
+}

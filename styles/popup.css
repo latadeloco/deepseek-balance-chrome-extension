@@ -1,0 +1,281 @@
+:root {
+  color-scheme: light dark;
+  --brand: #4d6bfe;
+  --brand-strong: #3b57e0;
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --text: #1a1c22;
+  --text-muted: #6b7280;
+  --border: #e2e4ec;
+  --danger: #d93025;
+  --success: #1a8f4a;
+  --radius: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14161c;
+    --surface: #1d2029;
+    --text: #eef0f5;
+    --text-muted: #9aa1b1;
+    --border: #2b2f3a;
+    --danger: #ff6b5e;
+    --success: #4cd07d;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 320px;
+  min-height: 220px;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  font-size: 13px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+  padding: 14px;
+  gap: 12px;
+}
+
+.app__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app__logo {
+  border-radius: 6px;
+}
+
+.app__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.view {
+  display: none;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.view.is-active {
+  display: flex;
+}
+
+.view__lead {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.field__input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+}
+
+.field__input:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 2px rgba(77, 107, 254, 0.25);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.checkbox input {
+  accent-color: var(--brand);
+}
+
+.secure-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.hint {
+  margin: 0;
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.btn {
+  border: none;
+  border-radius: var(--radius);
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.btn--primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--brand-strong);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+.btn--link {
+  background: none;
+  color: var(--text-muted);
+  text-decoration: underline;
+  padding: 2px;
+  font-weight: 500;
+}
+
+.btn--link:hover {
+  color: var(--danger);
+}
+
+.error-text {
+  margin: 0;
+  color: var(--danger);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.spinner {
+  width: 26px;
+  height: 26px;
+  margin: 40px auto;
+  border: 3px solid var(--border);
+  border-top-color: var(--brand);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.balance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 0 8px;
+}
+
+.balance__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.balance__amount {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.balance__value {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.balance__currency {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.balance__status {
+  font-size: 12px;
+  color: var(--success);
+}
+
+.balance__status.is-unavailable {
+  color: var(--danger);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.actions .btn {
+  flex: 1;
+}
+
+.app__footer {
+  text-align: center;
+  font-size: 10px;
+  color: var(--text-muted);
+}

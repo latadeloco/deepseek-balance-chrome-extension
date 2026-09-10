@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DeepSeek Balance</title>
+    <link rel="stylesheet" href="styles/popup.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <img
+          class="app__logo"
+          src="icons/icon32.png"
+          alt=""
+          width="24"
+          height="24"
+        />
+        <h1 class="app__title" data-i18n="appName">DeepSeek Balance</h1>
+      </header>
+
+      <section id="view-loading" class="view is-active" aria-live="polite">
+        <div class="spinner" role="status" aria-label="Loading"></div>
+      </section>
+
+      <section id="view-setup" class="view" aria-live="polite">
+        <p class="view__lead" data-i18n="setupLead"></p>
+        <form id="form-setup" class="form" novalidate>
+          <label class="field">
+            <span class="field__label" data-i18n="tokenLabel"></span>
+            <input
+              id="input-token"
+              class="field__input"
+              type="password"
+              autocomplete="off"
+              spellcheck="false"
+              data-i18n-placeholder="tokenPlaceholder"
+            />
+          </label>
+
+          <label class="checkbox">
+            <input id="input-secure" type="checkbox" />
+            <span data-i18n="secureModeLabel"></span>
+          </label>
+
+          <div id="secure-fields" class="secure-fields" hidden>
+            <p class="hint" data-i18n="secureModeHint"></p>
+            <label class="field">
+              <span class="field__label" data-i18n="passphraseLabel"></span>
+              <input
+                id="input-passphrase"
+                class="field__input"
+                type="password"
+                autocomplete="new-password"
+                data-i18n-placeholder="passphrasePlaceholder"
+              />
+            </label>
+          </div>
+
+          <label class="checkbox">
+            <input id="input-remember" type="checkbox" />
+            <span data-i18n="rememberSessionLabel"></span>
+          </label>
+
+          <p id="setup-error" class="error-text" hidden></p>
+          <button
+            id="btn-save"
+            class="btn btn--primary"
+            type="submit"
+            data-i18n="save"
+          ></button>
+        </form>
+      </section>
+
+      <section id="view-unlock" class="view" aria-live="polite">
+        <p class="view__lead" data-i18n="unlockLead"></p>
+        <form id="form-unlock" class="form" novalidate>
+          <label class="field">
+            <span class="field__label" data-i18n="passphraseLabel"></span>
+            <input
+              id="input-unlock-passphrase"
+              class="field__input"
+              type="password"
+              autocomplete="current-password"
+              data-i18n-placeholder="passphrasePlaceholder"
+            />
+          </label>
+
+          <label class="checkbox">
+            <input id="input-unlock-remember" type="checkbox" />
+            <span data-i18n="rememberSessionLabel"></span>
+          </label>
+
+          <p id="unlock-error" class="error-text" hidden></p>
+          <button
+            id="btn-unlock"
+            class="btn btn--primary"
+            type="submit"
+            data-i18n="unlock"
+          ></button>
+          <button
+            id="btn-reset"
+            class="btn btn--link"
+            type="button"
+            data-i18n="resetToken"
+          ></button>
+        </form>
+      </section>
+
+      <section id="view-balance" class="view" aria-live="polite">
+        <div class="balance">
+          <span class="balance__label" data-i18n="balanceLabel"></span>
+          <div class="balance__amount">
+            <span id="balance-value" class="balance__value">--</span>
+            <span id="balance-currency" class="balance__currency"></span>
+          </div>
+          <span id="balance-status" class="balance__status"></span>
+        </div>
+        <div class="actions">
+          <button
+            id="btn-refresh"
+            class="btn btn--ghost"
+            type="button"
+            data-i18n="refresh"
+          ></button>
+          <button
+            id="btn-disconnect"
+            class="btn btn--ghost"
+            type="button"
+            data-i18n="disconnect"
+          ></button>
+        </div>
+      </section>
+
+      <section id="view-error" class="view" aria-live="assertive">
+        <p id="error-message" class="error-text"></p>
+        <button
+          id="btn-retry"
+          class="btn btn--primary"
+          type="button"
+          data-i18n="retry"
+        ></button>
+      </section>
+
+      <footer class="app__footer">
+        <span data-i18n="unofficial"></span>
+      </footer>
+    </main>
+
+    <script type="module" src="src/popup.js"></script>
+  </body>
+</html>
