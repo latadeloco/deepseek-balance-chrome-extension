@@ -28,15 +28,11 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  background: transparent;
-}
-
 body {
   margin: 0;
   width: 320px;
   min-height: 220px;
+  background: var(--bg);
   color: var(--text);
   font-family:
     system-ui,
@@ -53,9 +49,6 @@ body {
   min-height: 220px;
   padding: 14px;
   gap: 12px;
-  border-radius: 14px;
-  background: var(--bg);
-  overflow: hidden;
 }
 
 .app__header {
