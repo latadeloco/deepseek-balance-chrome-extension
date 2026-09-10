@@ -79,6 +79,10 @@
     "message": "Cargando",
     "description": "Etiqueta accesible del indicador de carga."
   },
+  "githubLink": {
+    "message": "Extension GitHub",
+    "description": "Enlace del pie de página al repositorio de GitHub."
+  },
   "statusUnavailable": {
     "message": "Saldo insuficiente para llamadas a la API",
     "description": "Se muestra cuando is_available es falso."

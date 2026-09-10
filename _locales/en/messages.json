@@ -79,6 +79,10 @@
     "message": "Loading",
     "description": "Accessible label for the loading spinner."
   },
+  "githubLink": {
+    "message": "Extension GitHub",
+    "description": "Footer link to the GitHub repository."
+  },
   "statusUnavailable": {
     "message": "Balance insufficient for API calls",
     "description": "Shown when is_available is false."
