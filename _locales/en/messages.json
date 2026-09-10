@@ -75,6 +75,10 @@
     "message": "Unofficial extension — not affiliated with DeepSeek",
     "description": "Footer disclaimer."
   },
+  "loading": {
+    "message": "Loading",
+    "description": "Accessible label for the loading spinner."
+  },
   "statusUnavailable": {
     "message": "Balance insufficient for API calls",
     "description": "Shown when is_available is false."

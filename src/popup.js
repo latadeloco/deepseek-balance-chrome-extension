@@ -63,6 +63,9 @@ function localize() {
   for (const node of document.querySelectorAll("[data-i18n-placeholder]")) {
     node.placeholder = msg(node.dataset.i18nPlaceholder);
   }
+  for (const node of document.querySelectorAll("[data-i18n-aria]")) {
+    node.setAttribute("aria-label", msg(node.dataset.i18nAria));
+  }
 }
 
 function show(name) {

@@ -75,6 +75,10 @@
     "message": "Extensión no oficial — sin afiliación con DeepSeek",
     "description": "Aviso del pie de página."
   },
+  "loading": {
+    "message": "Cargando",
+    "description": "Etiqueta accesible del indicador de carga."
+  },
   "statusUnavailable": {
     "message": "Saldo insuficiente para llamadas a la API",
     "description": "Se muestra cuando is_available es falso."
