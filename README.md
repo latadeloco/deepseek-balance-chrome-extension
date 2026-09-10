@@ -2,43 +2,67 @@
 
 > **Extensión no oficial.** Este proyecto no está afiliado, asociado ni respaldado por DeepSeek.
 
-Extensión de Chrome (Manifest V3) para ver de un vistazo tu **saldo disponible en DeepSeek**. Es ligera, sin dependencias en tiempo de ejecución y con interfaz en español e inglés (según el idioma del navegador) y tema claro/oscuro automático.
+Una pequeña extensión de Chrome (Manifest V3) para consultar de un vistazo tu **saldo disponible en DeepSeek**, sin abrir la web ni navegar por menús. Es **gratuita**, **open source** y **ligera**: no incluye dependencias en tiempo de ejecución ni rastreadores, y todo el código es tuyo para auditar, modificar y compartir.
 
-## Funciones
+## ¿Por qué?
 
-- Panel minimalista con el saldo (`total_balance`) y la divisa, p. ej. `34.64 USD`.
+Si usas la API de DeepSeek, saber cuánto saldo te queda suele implicar entrar en la plataforma y buscarlo. Esta extensión te lo muestra en un clic desde la barra de Chrome: abres el popup y ves el saldo al instante.
+
+## ¿Qué hace?
+
+- Muestra el **saldo total** (`total_balance`) junto con su divisa, por ejemplo `34.64 USD`.
 - Selecciona automáticamente la entrada en **USD**; si no existe, muestra la primera divisa disponible.
-- Desbloqueo mediante tu **token de API** de DeepSeek (`Bearer`).
-- **Cifrado** del token antes de guardarlo (AES-256-GCM).
-- Refresh al abrir el popup, botón de actualizar y botón de desconectar.
-- Interfaz i18n (`es`/`en`) y temas claro/oscuro automáticos.
+- Se autentica con tu **token de API** de DeepSeek (cabecera `Bearer`).
+- **Cifra el token** antes de guardarlo (AES-256-GCM).
+- Actualiza el saldo **al abrir el popup**; incluye botones de **actualizar** y **desconectar**.
+- Interfaz en **español e inglés** (según el idioma del navegador).
+- **Tema claro/oscuro** automático según el sistema.
+- Aviso si el saldo es insuficiente para llamadas a la API.
 
-## Instalación (modo desarrollador)
+## Privacidad
 
-1. Clona o descarga este repositorio.
+La extensión **no envía tus datos a ningún servidor propio**: no hay analíticas, ni telemetría, ni backend. La única conexión que realiza es a la API oficial de DeepSeek (`https://api.deepseek.com`), usando tu token. Tu token se guarda **solo en tu equipo**, cifrado.
+
+## Instalación
+
+La extensión no está publicada en la Chrome Web Store, por lo que se instala en **modo desarrollador**:
+
+1. Clona o descarga este repositorio:
+
+   ```bash
+   git clone git@github.com:latadeloco/deepseek-balance-chrome-extension.git
+   ```
+
 2. Abre `chrome://extensions` en Chrome.
 3. Activa **Modo de desarrollador** (arriba a la derecha).
 4. Pulsa **Cargar descomprimida** y selecciona la carpeta del proyecto.
-5. Fija la extensión en la barra si lo deseas.
+5. (Opcional) Fija la extensión en la barra de herramientas.
 
 ## Uso
 
 1. Consigue un token de API en [platform.deepseek.com](https://platform.deepseek.com/).
-2. Abre la extensión, introduce el token y pulsa **Guardar**.
+2. Pulsa el icono de la extensión, introduce el token y pulsa **Guardar**.
 3. La extensión valida el token contra el endpoint oficial y muestra tu saldo.
 
-### Modos de seguridad
+## Seguridad
 
-| Modo                       | Cómo funciona                                                                                               | Protección                                                                               |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| **Estándar** (por defecto) | Se genera una clave aleatoria y se guarda localmente junto al token cifrado. No pide nada al usuario.       | **Ofuscación**, no cifrado real: quien acceda al perfil de Chrome obtiene clave y token. |
-| **Modo seguro** (opcional) | Deriva la clave de una **frase de paso** tuya (PBKDF2-SHA256, 310.000 iteraciones) que **nunca se guarda**. | **Cifrado real**: sin la frase de paso, el token no puede descifrarse.                   |
+Esta sección es importante y quiero ser transparente: el nivel de protección depende del modo que elijas.
 
-En **modo seguro** puedes marcar _Recordar hasta cerrar Chrome_: la frase/token se guarda en `chrome.storage.session` (memoria RAM) y se borra al cerrar el navegador.
+El token se guarda cifrado con **AES-256-GCM**. La diferencia entre modos está en **de dónde sale la clave** de cifrado, porque una extensión de Chrome no puede acceder al llavero del sistema operativo.
 
-> Aviso: ningún esquema local protege el token si el equipo está comprometido (malware, keylogger) o mientras la extensión está desbloqueada. La opción _Recordar hasta cerrar Chrome_ mantiene el token en memoria hasta cerrar Chrome.
+| Modo                       | Cómo funciona                                                                                                           | Protección real                                                                                             |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| **Estándar** (por defecto) | Se genera una clave aleatoria y se guarda localmente junto al token cifrado. No pide nada al usuario.                   | **Ofuscación**: quien acceda al perfil de Chrome obtiene la clave y el token, por lo que puede descifrarlo. |
+| **Seguro** (opcional)      | La clave se deriva de una **frase de paso** tuya (PBKDF2-SHA256, 310.000 iteraciones) que **nunca se guarda** en disco. | **Cifrado real**: sin la frase de paso, el token no se puede descifrar.                                     |
 
-Si olvidas la frase de paso, el token cifrado no se puede recuperar: usa **Desconectar / Introduce un token nuevo** para empezar de cero.
+Detalles adicionales:
+
+- En **modo seguro** puedes marcar _Recordar hasta cerrar Chrome_: el token se guarda en `chrome.storage.session`, que vive en **memoria RAM** y se borra al cerrar el navegador.
+- Si olvidas la frase de paso, el token cifrado **no se puede recuperar**. Usa **Desconectar** (o el enlace de reintroducir token) para empezar de cero.
+- El token solo se envía a `api.deepseek.com` mediante HTTPS.
+- Los permisos solicitados son mínimos: `storage` (guardar tus datos localmente) y acceso de red únicamente a `https://api.deepseek.com/*`.
+
+> **Límites honestos.** Ningún esquema local puede protegerte si el equipo está comprometido (malware, keylogger) o mientras la extensión está desbloqueada en memoria. Si quieres la máxima protección, usa el **modo seguro** sin _Recordar hasta cerrar Chrome_.
 
 ## Desarrollo
 
@@ -67,12 +91,16 @@ tests/               Pruebas unitarias
 
 El endpoint usado es `GET https://api.deepseek.com/user/balance` con cabecera `Authorization: Bearer <token>`.
 
+## Contribuir
+
+Las pull requests, issues e ideas son bienvenidas. Si encuentras un bug o propones una mejora, abre un issue en el repositorio.
+
 ## Licencia
 
-MIT © Jesús Robles Sánchez.
+MIT © Jesús Robles Sánchez. Uso libre y gratuito: puedes usar, copiar, modificar y distribuir el proyecto respetando los términos de la licencia.
 
 ---
 
 ## English (short)
 
-Unofficial Chrome extension (MV3) to display your available DeepSeek balance. Enter your DeepSeek API token; the token is encrypted before being stored (auto key by default, or a passphrase in Secure mode). UI in English/Spanish and automatic light/dark theme. Not affiliated with DeepSeek. Licensed under MIT.
+A tiny, free, open-source Chrome extension (MV3) to check your available DeepSeek balance at a glance. It authenticates with your DeepSeek API token, stores it encrypted (AES-256-GCM), and only talks to the official DeepSeek API. Two security modes: a convenience mode with a locally stored key (obfuscation) and a passphrase-based secure mode (real encryption). UI in English/Spanish with automatic light/dark theme. Not affiliated with DeepSeek. Licensed under MIT.
