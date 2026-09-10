@@ -2,14 +2,10 @@ const encoder = new TextEncoder();
 const decoder = new TextDecoder();
 
 const subtle = globalThis.crypto.subtle;
-const SALT_BYTES = 16;
 const IV_BYTES = 12;
 const KEY_BYTES = 32;
 
-export const PBKDF2_ITERATIONS = 310000;
-export const VAULT_VERSION = 1;
-export const MIN_PASSPHRASE_LENGTH = 8;
-export const MODES = Object.freeze({ AUTO: "auto", PASSPHRASE: "passphrase" });
+const VAULT_VERSION = 1;
 
 function randomBytes(length) {
   const bytes = new Uint8Array(length);
@@ -65,63 +61,17 @@ async function importRawKey(rawKey) {
   ]);
 }
 
-export async function deriveKeyFromPassphrase(passphrase, salt, iterations) {
-  const baseKey = await subtle.importKey(
-    "raw",
-    encoder.encode(passphrase),
-    "PBKDF2",
-    false,
-    ["deriveKey"],
-  );
-  return subtle.deriveKey(
-    {
-      name: "PBKDF2",
-      salt: base64ToBytes(salt),
-      iterations,
-      hash: "SHA-256",
-    },
-    baseKey,
-    { name: "AES-GCM", length: 256 },
-    false,
-    ["encrypt", "decrypt"],
-  );
-}
-
 export async function createAutoVault(token) {
   const rawKey = randomBytes(KEY_BYTES);
   const key = await importRawKey(rawKey);
   const { iv, ciphertext } = await encryptWithKey(key, token);
   return {
     key: bytesToBase64(rawKey),
-    vault: { version: VAULT_VERSION, mode: MODES.AUTO, iv, ciphertext },
-  };
-}
-
-export async function createPassphraseVault(token, passphrase) {
-  const salt = bytesToBase64(randomBytes(SALT_BYTES));
-  const iterations = PBKDF2_ITERATIONS;
-  const key = await deriveKeyFromPassphrase(passphrase, salt, iterations);
-  const { iv, ciphertext } = await encryptWithKey(key, token);
-  return {
-    version: VAULT_VERSION,
-    mode: MODES.PASSPHRASE,
-    salt,
-    iterations,
-    iv,
-    ciphertext,
+    vault: { version: VAULT_VERSION, iv, ciphertext },
   };
 }
 
 export async function unlockAutoVault(vault, keyBase64) {
   const key = await importRawKey(base64ToBytes(keyBase64));
-  return decryptWithKey(key, vault);
-}
-
-export async function unlockPassphraseVault(vault, passphrase) {
-  const key = await deriveKeyFromPassphrase(
-    passphrase,
-    vault.salt,
-    vault.iterations,
-  );
   return decryptWithKey(key, vault);
 }

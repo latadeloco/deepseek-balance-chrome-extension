@@ -8,7 +8,7 @@
     "description": "Extension description."
   },
   "setupLead": {
-    "message": "Enter your DeepSeek API token to see your balance.",
+    "message": "Enter your DeepSeek API token to see your balance. It is stored encrypted on your device and you will not have to enter it again.",
     "description": "Setup screen lead text."
   },
   "tokenLabel": {
@@ -19,41 +19,9 @@
     "message": "sk-...",
     "description": "Token input placeholder."
   },
-  "secureModeLabel": {
-    "message": "Secure mode (passphrase)",
-    "description": "Checkbox label to enable passphrase encryption."
-  },
-  "secureModeHint": {
-    "message": "Secure mode encrypts your token with a passphrase you must remember. Without it, the key is stored locally and only obfuscated.",
-    "description": "Explanation of secure mode."
-  },
-  "passphraseLabel": {
-    "message": "Passphrase",
-    "description": "Passphrase field label."
-  },
-  "passphrasePlaceholder": {
-    "message": "At least 8 characters",
-    "description": "Passphrase input placeholder."
-  },
-  "rememberSessionLabel": {
-    "message": "Remember until Chrome closes",
-    "description": "Checkbox label for session storage."
-  },
   "save": {
     "message": "Save",
     "description": "Save button."
-  },
-  "unlockLead": {
-    "message": "Enter your passphrase to unlock your balance.",
-    "description": "Unlock screen lead text."
-  },
-  "unlock": {
-    "message": "Unlock",
-    "description": "Unlock button."
-  },
-  "resetToken": {
-    "message": "Forgot your passphrase? Enter a new token",
-    "description": "Link to reset the stored token."
   },
   "balanceLabel": {
     "message": "Available balance",
@@ -90,14 +58,6 @@
   "errorTokenRequired": {
     "message": "Please enter your API token.",
     "description": "Validation error."
-  },
-  "errorPassphraseShort": {
-    "message": "Passphrase must be at least 8 characters.",
-    "description": "Validation error."
-  },
-  "errorWrongPassphrase": {
-    "message": "Wrong passphrase. Please try again.",
-    "description": "Unlock error."
   },
   "errorInvalidToken": {
     "message": "Invalid token. Check your DeepSeek API token.",

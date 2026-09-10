@@ -8,7 +8,7 @@
     "description": "Descripción de la extensión."
   },
   "setupLead": {
-    "message": "Introduce tu token de API de DeepSeek para ver tu saldo.",
+    "message": "Introduce tu token de API de DeepSeek para ver tu saldo. Se guarda cifrado en tu equipo y no tendrás que volver a escribirlo.",
     "description": "Texto de la pantalla de configuración."
   },
   "tokenLabel": {
@@ -19,41 +19,9 @@
     "message": "sk-...",
     "description": "Marcador del campo de token."
   },
-  "secureModeLabel": {
-    "message": "Modo seguro (frase de paso)",
-    "description": "Etiqueta de la casilla para activar el cifrado con frase de paso."
-  },
-  "secureModeHint": {
-    "message": "El modo seguro cifra tu token con una frase de paso que debes recordar. Sin él, la clave se guarda localmente y solo queda ofuscada.",
-    "description": "Explicación del modo seguro."
-  },
-  "passphraseLabel": {
-    "message": "Frase de paso",
-    "description": "Etiqueta del campo de frase de paso."
-  },
-  "passphrasePlaceholder": {
-    "message": "Mínimo 8 caracteres",
-    "description": "Marcador del campo de frase de paso."
-  },
-  "rememberSessionLabel": {
-    "message": "Recordar hasta cerrar Chrome",
-    "description": "Etiqueta de la casilla para el almacenamiento de sesión."
-  },
   "save": {
     "message": "Guardar",
     "description": "Botón guardar."
-  },
-  "unlockLead": {
-    "message": "Introduce tu frase de paso para desbloquear tu saldo.",
-    "description": "Texto de la pantalla de desbloqueo."
-  },
-  "unlock": {
-    "message": "Desbloquear",
-    "description": "Botón de desbloqueo."
-  },
-  "resetToken": {
-    "message": "¿Olvidaste tu frase de paso? Introduce un token nuevo",
-    "description": "Enlace para restablecer el token guardado."
   },
   "balanceLabel": {
     "message": "Saldo disponible",
@@ -90,14 +58,6 @@
   "errorTokenRequired": {
     "message": "Introduce tu token de API.",
     "description": "Error de validación."
-  },
-  "errorPassphraseShort": {
-    "message": "La frase de paso debe tener al menos 8 caracteres.",
-    "description": "Error de validación."
-  },
-  "errorWrongPassphrase": {
-    "message": "Frase de paso incorrecta. Inténtalo de nuevo.",
-    "description": "Error de desbloqueo."
   },
   "errorInvalidToken": {
     "message": "Token no válido. Revisa tu token de API de DeepSeek.",

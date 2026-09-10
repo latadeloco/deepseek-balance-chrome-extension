@@ -1,7 +1,7 @@
-export const BALANCE_URL = "https://api.deepseek.com/user/balance";
-export const DEFAULT_TIMEOUT_MS = 10000;
+const BALANCE_URL = "https://api.deepseek.com/user/balance";
+const DEFAULT_TIMEOUT_MS = 10000;
 
-export class ApiError extends Error {
+class ApiError extends Error {
   constructor(code, message) {
     super(message);
     this.name = "ApiError";

@@ -38,71 +38,12 @@
             />
           </label>
 
-          <label class="checkbox">
-            <input id="input-secure" type="checkbox" />
-            <span data-i18n="secureModeLabel"></span>
-          </label>
-
-          <div id="secure-fields" class="secure-fields" hidden>
-            <p class="hint" data-i18n="secureModeHint"></p>
-            <label class="field">
-              <span class="field__label" data-i18n="passphraseLabel"></span>
-              <input
-                id="input-passphrase"
-                class="field__input"
-                type="password"
-                autocomplete="new-password"
-                data-i18n-placeholder="passphrasePlaceholder"
-              />
-            </label>
-          </div>
-
-          <label class="checkbox">
-            <input id="input-remember" type="checkbox" />
-            <span data-i18n="rememberSessionLabel"></span>
-          </label>
-
           <p id="setup-error" class="error-text" hidden></p>
           <button
             id="btn-save"
             class="btn btn--primary"
             type="submit"
             data-i18n="save"
-          ></button>
-        </form>
-      </section>
-
-      <section id="view-unlock" class="view" aria-live="polite">
-        <p class="view__lead" data-i18n="unlockLead"></p>
-        <form id="form-unlock" class="form" novalidate>
-          <label class="field">
-            <span class="field__label" data-i18n="passphraseLabel"></span>
-            <input
-              id="input-unlock-passphrase"
-              class="field__input"
-              type="password"
-              autocomplete="current-password"
-              data-i18n-placeholder="passphrasePlaceholder"
-            />
-          </label>
-
-          <label class="checkbox">
-            <input id="input-unlock-remember" type="checkbox" />
-            <span data-i18n="rememberSessionLabel"></span>
-          </label>
-
-          <p id="unlock-error" class="error-text" hidden></p>
-          <button
-            id="btn-unlock"
-            class="btn btn--primary"
-            type="submit"
-            data-i18n="unlock"
-          ></button>
-          <button
-            id="btn-reset"
-            class="btn btn--link"
-            type="button"
-            data-i18n="resetToken"
           ></button>
         </form>
       </section>

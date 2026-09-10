@@ -123,35 +123,6 @@ body {
   box-shadow: 0 0 0 2px rgba(77, 107, 254, 0.25);
 }
 
-.checkbox {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--text);
-  cursor: pointer;
-}
-
-.checkbox input {
-  accent-color: var(--brand);
-}
-
-.secure-fields {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 10px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--surface);
-}
-
-.hint {
-  margin: 0;
-  font-size: 11px;
-  color: var(--text-muted);
-  line-height: 1.4;
-}
-
 .btn {
   border: none;
   border-radius: var(--radius);
@@ -185,18 +156,6 @@ body {
 .btn--ghost:hover:not(:disabled) {
   border-color: var(--brand);
   color: var(--brand);
-}
-
-.btn--link {
-  background: none;
-  color: var(--text-muted);
-  text-decoration: underline;
-  padding: 2px;
-  font-weight: 500;
-}
-
-.btn--link:hover {
-  color: var(--danger);
 }
 
 .error-text {
