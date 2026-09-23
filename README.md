@@ -4,6 +4,13 @@
 
 A tiny Chrome extension (Manifest V3) to check your **available DeepSeek balance** at a glance, without opening the website or digging through menus. It is **free**, **open source**, and **lightweight**: no runtime dependencies, no trackers, and all the code is yours to audit, modify, and share.
 
+## Screenshots
+
+<p align="center">
+  <img src="store-assets/screenshot-1-balance-1280x800.png" alt="Balance view" width="49%" />
+  <img src="store-assets/screenshot-2-setup-1280x800.png" alt="Setup view" width="49%" />
+</p>
+
 ## Why?
 
 If you use the DeepSeek API, finding out how much credit you have left usually means logging into the platform and looking for it. This extension shows it in one click from the Chrome toolbar: open the popup and see your balance instantly.
