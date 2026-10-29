@@ -19,6 +19,7 @@ const el = {
   disconnect: document.getElementById("btn-disconnect"),
   errorMessage: document.getElementById("error-message"),
   retry: document.getElementById("btn-retry"),
+  changeToken: document.getElementById("btn-change-token"),
 };
 
 let activeToken = null;
@@ -74,6 +75,12 @@ function renderBalance(data) {
   }
 }
 
+function renderError(error) {
+  el.errorMessage.textContent = errorMessage(error);
+  showElement(el.changeToken, error?.code === "unauthorized");
+  show("error");
+}
+
 async function loadBalance(token) {
   show("loading");
   try {
@@ -82,8 +89,7 @@ async function loadBalance(token) {
     renderBalance(data);
     show("balance");
   } catch (error) {
-    el.errorMessage.textContent = errorMessage(error);
-    show("error");
+    renderError(error);
   }
 }
 
@@ -155,5 +161,6 @@ el.formSetup.addEventListener("submit", handleSetup);
 el.refresh.addEventListener("click", handleRefresh);
 el.disconnect.addEventListener("click", handleDisconnect);
 el.retry.addEventListener("click", handleRefresh);
+el.changeToken.addEventListener("click", handleDisconnect);
 
 init();

@@ -22,6 +22,7 @@ If you use the DeepSeek API, finding out how much credit you have left usually m
 - Authenticates with your DeepSeek **API token** (`Bearer` header).
 - **Encrypts the token** before storing it (AES-256-GCM) and keeps it on your device: you will not have to enter it again after closing Chrome.
 - Refreshes the balance **when the popup opens**; includes **refresh** and **disconnect** buttons.
+- If the saved token **expires or is revoked**, offers to **enter a new token** without reinstalling.
 - UI in **English and Spanish** (based on the browser language).
 - Automatic **light/dark theme** following the system.
 - Warning when the balance is insufficient for API calls.

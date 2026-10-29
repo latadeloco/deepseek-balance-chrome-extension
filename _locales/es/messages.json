@@ -39,6 +39,10 @@
     "message": "Reintentar",
     "description": "Botón reintentar."
   },
+  "changeToken": {
+    "message": "Añadir token de nuevo",
+    "description": "Botón para introducir un token nuevo cuando el guardado caduca o no es válido."
+  },
   "unofficial": {
     "message": "Extensión no oficial — sin afiliación con DeepSeek",
     "description": "Aviso del pie de página."

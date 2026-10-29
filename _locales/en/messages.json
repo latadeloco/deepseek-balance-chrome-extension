@@ -39,6 +39,10 @@
     "message": "Retry",
     "description": "Retry button."
   },
+  "changeToken": {
+    "message": "Add token again",
+    "description": "Button to enter a new token when the saved one expires or is invalid."
+  },
   "unofficial": {
     "message": "Unofficial extension — not affiliated with DeepSeek",
     "description": "Footer disclaimer."
